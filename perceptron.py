@@ -102,7 +102,7 @@ def LectorEntrada():
         datos = []
         for linea in contenido:
             linea_datos = linea.strip().split(',')
-            datos.append([int(x) for x in linea_datos])
+            datos.append([float(x) for x in linea_datos])
     
     return datos
 
@@ -117,7 +117,6 @@ def asignar_entrada_archivo():
         if j!=0:
             agregar_vector()
         if len(datos[j]) != len(w_vars):
-            print()
             error_lectura = True
             error = True
         else:
@@ -389,6 +388,8 @@ resultados.grid(row=0, column=2, sticky="n")
 #Adicón del vector incial
 agregar_vector()
 
-
+try:
 #Loop de la ventana creada
-window.mainloop()
+    window.mainloop()
+except ValueError:
+    print(ValueError)
